@@ -122,7 +122,7 @@ public class ClientProxy extends CommonProxy {
 
 枚举类`Side`提供了`CLIENT`与`SERVER`两个参数，借助此，你可以在`@Mod.EventBusSubscriber`中限定其的加载端。
 
-当然，如果你在`CommonProxy`里注册了什么方法，记得在`ClientProxy`中实现一次，比如：
+当然，如果你在`CommonProxy`里注册了什么方法，记得在`ClientProxy`中重写一次，比如：
 
 ```java
 @Mod.EventBusSubscriber(modId = "modname")
@@ -134,7 +134,7 @@ public class CommonProxy {
 }
 ```
 
-那么在`ClientProxy`中，你需要实现这个方法：
+那么在`ClientProxy`中，你需要重写这个方法：
 
 ```java
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -155,4 +155,72 @@ public class ClientProxy extends CommonProxy {
 事实上，你可以在`net.minecraftforge.fml.common.event`这个包内找到一堆关于模组加载的事件，
 它们共同构成了Forge的**生命周期**（Life Cycle）。就像生物在漫长的时间中繁衍生息，基因也同时会发生潜移默化的变化那样，
 生命周期可以粗浅地理解为代码在不同的时间点被加载造成的次序，在不同的时间被加载会导致不同的结果（结合上面这个小例子，
-请读者想象一下当一个蝌蚪在尚未成熟时就被拉出水面时造成的后果，这种情况下的蝌蚪还会变成我们常规认识的青蛙吗？）。
+请读者想象一下当一个蝌蚪在尚未成熟时就被拉出水面时造成的后果，这种情况下的蝌蚪还会变成我们常规认识的青蛙吗？）。一些常见的事件如下：
+
+|             事件名            |                          作用                         |
+| ---------------------------- | ----------------------------------------------------- |
+| `FMLConstructionEvent`       | 最开始的`FML`事件，在模组被加载时就开始运行。               |
+| `FMLPreInitializationEvent`  | 一般用于注册配置文件，物品与其他关于注册的事情。             |
+| `FMLInitializationEvent`     | 对模组进行设置的阶段，关于注册表与其他数据结构应当在此被注册。 |
+| `FMLPostInitializationEvent` | 完成模组的设置，和其他模组的交互也在这个阶段被注册。          |
+| `FMLLoadCompleteEvent`       | 在模组加载完毕时开始运行的事件。                           |
+
+除此以外，还有一些适用于服务端的事件，它们都可以在以上的包中找到。
+
+为方法标记`@Mod.EventHandler`注解可以使其在指定的生命周期被注册，比如说：
+
+```java
+@Mod.EventHandler
+public void onPreInit(FMLPreInitializationEvent event) {
+    // ...
+}
+```
+
+就是一个注册于`FMLPreInitializationEvent`的方法，其中的内容将在这个阶段被注册。遵照惯例，
+我们会将`Proxy`中的`preLoad()`方法在`FMLPreInitializationEvent`中注册，即：
+
+```java
+@Mod(modid = "modname",
+     name = "Mod Name",
+     version = "1.0.0",
+     acceptedMinecraftVersions = "[1.12.2]",
+     dependencies = "required:forge@[14.23.5.2847,);")
+public class ModName {
+
+    @SidedProxy(modId = "modname",
+                clientSide = "com.modname.client.ClientProxy",
+                serverSide = "com.modname.common.CommonProxy")
+    public static CommonProxy proxy;
+
+    @Mod.EventHandler
+    public void onPreInit(FMLPreInitializationEvent event) {
+        proxy.preLoad();
+    }
+}
+```
+
+其中`CommonProxy`中的`preLoad()`方法为一个可以注册事件的容器（这意味着它目前是空的）：
+
+```java
+@Mod.EventBusSubscriber(modid = "modname")
+public class CommonProxy {
+
+    public void preLoad() {
+        // ...
+    }
+}
+```
+
+而在`ClientProxy`中重写的`preLoad()`方法目前也是一样的：
+
+```java
+@Mod.EventBusSubscriber(Side.CLIENT)
+public class ClientProxy extends CommonProxy {
+
+    @Override
+    public void preLoad() {
+        super.preLoad();
+        // ...
+    }
+}
+```

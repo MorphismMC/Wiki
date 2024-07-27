@@ -9,7 +9,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
   lang: "zh-CN",
   title: "Uranus",
-  description: "GregTech附属开发文档",
+  description: "格雷科技附属开发文档",
   base: "/Uranus/",
   themeConfig: {
     logo: "/icon/icon.ico",
