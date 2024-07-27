@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Uranus"
-  text: "GregTech附属开发教程"
+  text: "格雷科技附属开发教程"
   tagline: 非官方
   image:
     src: https://gitlab.com/uploads/-/system/group/avatar/76070831/cngtommunity_icon.png
