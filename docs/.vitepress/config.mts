@@ -39,7 +39,7 @@ export default defineConfig({
     },
     editLink: {
       pattern:
-        "https://github.com/GregTech-Chinese-Community/Uranus/edit/master/docs/:path",
+        "https://github.com/MorphismMC/Uranus/edit/main/docs/",
       text: "在Github上编辑该页",
     },
     lastUpdated: {
