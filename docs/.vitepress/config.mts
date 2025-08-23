@@ -3,13 +3,12 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   head: [
-    ["link", { rel: "icon", type: "image/x-icon", href: "/Uranus/icon.ico" }]
+    ["link", { rel: "icon", type: "image/x-icon", href: "icon.ico" }]
   ],
   ignoreDeadLinks: true,
   lang: "zh-CN",
-  title: "Uranus",
-  description: "格雷科技附属开发文档",
-  base: "/Uranus/",
+  title: "MorphismMC Wiki",
+  description: "MorphismMC开发文档",
   themeConfig: {
     logo: "/icon/icon.ico",
     nav: [
@@ -39,7 +38,7 @@ export default defineConfig({
     },
     editLink: {
       pattern:
-        "https://github.com/MorphismMC/Uranus/edit/main/docs/",
+        "https://github.com/MorphismMC/Wiki/edit/main/docs/",
       text: "在Github上编辑该页",
     },
     lastUpdated: {
