@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import mdItCustomAttrs from "markdown-it-custom-attrs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -36,7 +35,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the Creative Commons Zero v1.0 Universal License.',
-      copyright: 'Copyright © 2024 GTCNC'
+      copyright: 'Copyright © 2024-2025 MorphismMC'
     },
     editLink: {
       pattern:
