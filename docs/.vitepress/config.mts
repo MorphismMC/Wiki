@@ -1,14 +1,18 @@
 import { defineConfig } from 'vitepress'
+import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
+import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  title: "MorphismMC Wiki",
+  description: "MorphismMC开发文档",
+  lang: 'zh-CN',
+
   head: [
     ["link", { rel: "icon", type: "image/x-icon", href: "icon.ico" }]
   ],
   ignoreDeadLinks: true,
-  lang: "zh-CN",
-  title: "MorphismMC Wiki",
-  description: "MorphismMC开发文档",
+  
   themeConfig: {
     logo: "/icon/icon.ico",
     nav: [
@@ -75,5 +79,27 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
   },
+
+  markdown: {
+    lineNumbers: true,
+
+    config: (md) => {
+      md.use(() => { groupIconMdPlugin })
+      md.use(() => { MermaidMarkdown })
+    }
+  },
+
+  vite: {
+    plugins: [
+      [MermaidPlugin()]
+    ],
+    optimizeDeps: {
+      include: ['mermaid'],
+    },
+    ssr: {
+      noExternal: ['mermaid'],
+    }
+  },
+
   lastUpdated: true
 })
