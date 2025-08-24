@@ -4,9 +4,9 @@ export const zh = defineConfig({
     lang: "zh-CN",
     themeConfig: {
         nav: [
-            { text: '主页', link: '/' },
-            { text: '介绍', link: '/introduce' },
-            { text: '快速开始', link: '/quick_start' }
+            { text: '主页', link: './' },
+            { text: '介绍', link: './introduce' },
+            { text: '快速开始', link: './quick_start' }
         ],
         sidebar: sidebar(),
 
@@ -51,16 +51,17 @@ export const zh = defineConfig({
             next: "下一页",
         }
     }
-})
+});
 
 function sidebar(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'Examples',
+            text: 'GTCEu附属开发文档',
+            collapsed: false,
             items: [
-                { text: 'Markdown Examples', link: '/markdown-examples' },
-                { text: 'Runtime API Examples', link: '/api-examples' }
+                { text: '引言', link: './intro' },
+                { text: '元物品', link: './chap1-metaitem' }
             ]
         }
     ]
-}
+};

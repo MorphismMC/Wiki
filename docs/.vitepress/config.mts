@@ -9,7 +9,10 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/x-icon', href: 'icon.ico' }]
   ],
+  ignoreDeadLinks: true,
+  lastUpdated: true,
   title: 'MorphismMC Wiki',
+
   themeConfig: {
     logo: '/icon/icon.ico',
     socialLinks: [
@@ -20,8 +23,7 @@ export default defineConfig({
       copyright: 'Copyright © 2024-2025 MorphismMC'
     },
   },
-  ignoreDeadLinks: true,
-  lastUpdated: true,
+
   markdown: {
     lineNumbers: true,
 
@@ -50,8 +52,9 @@ export default defineConfig({
       noExternal: ['mermaid'],
     }
   },
+
   locales: {
-    root: { label: "English", ...en },
-    zh: { label: "简体中文", ...zh },
+    en: { label: 'English', ...en },
+    zh: { label: '简体中文', ...zh },
   }
 });
