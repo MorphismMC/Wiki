@@ -23,10 +23,11 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'GTCEu附属开发文档',
+        collapsed: false,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '引言', link: '/gtceu/intro' },
+          { text: '元物品', link: '/gtceu/chap1-metaitem' }
         ]
       }
     ],
