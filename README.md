@@ -1,2 +1,3 @@
-# Uranus
-GregTech addon dev docs.
+# MorphismMC Wiki
+
+Minecraft Mod Development Wikipedia.
