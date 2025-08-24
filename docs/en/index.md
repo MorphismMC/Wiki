@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /introduction
+      link: ./introduction
 
 
 features:
@@ -19,7 +19,7 @@ features:
       src: https://media.forgecdn.net/avatars/thumbnails/850/975/256/256/638252863907612360.png
     title: GTCEu附属模组开发文档
     details: 快速入门编写 GTCEu 1.12.2 附属模组
-    link: /gtceu/intro
+    link: ./gtceu/intro
   - icon:
       src: https://cdn.modrinth.com/data/7tG215v7/images/dab88763809c6273b2947356c91ac82883d9392f.png
     title: 1.20.x GTM
