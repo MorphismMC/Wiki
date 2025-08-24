@@ -1,2 +1,1 @@
-/*  /en/:splat  302
-/*  /zh/:splat  302  Language=zh
+/* /zh/:splat
