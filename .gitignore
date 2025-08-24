@@ -2,5 +2,6 @@
 /docs/.vitepress/cache/
 /docs/.vitepress/dist/
 /.vscode/
+/.obsidian/
 test*.*
 yarn.lock
