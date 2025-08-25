@@ -32,7 +32,7 @@ features:
     link: ./gtceu/intro
     
   - icon:
-    src: https://raw.githubusercontent.com/GregTechCEu/Branding/refs/heads/master/gregtech_ceu_modern_logo_large_modern.png
+    src: https://media.forgecdn.net/avatars/thumbnails/850/975/64/64/638252863907612360.png
     title: GTM Addon Mod Develop Documents
     details: 基于 GTM 的附属模组教程与相关 API 开发文档
 ---
