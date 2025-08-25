@@ -13,7 +13,7 @@ VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shi
 export default {
   data () {
     return {
-      msg: 'Highlighted!'
+      msg: "Highlighted!"
     }
   }
 }
@@ -26,7 +26,7 @@ export default {
 export default {
   data () {
     return {
-      msg: 'Highlighted!'
+      msg: "Highlighted!"
     }
   }
 }

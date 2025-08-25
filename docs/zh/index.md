@@ -3,36 +3,33 @@
 layout: home
 
 hero:
-  name: "MorphismMC Wiki"
-  tagline: 非官方
+  name: "MorphismMC"
+  text: "Wiki"
+  tagline: ""
   image:
     src: https://gitlab.com/uploads/-/system/group/avatar/76070831/cngtommunity_icon.png
     alt: MorphismMC
-  actions:
-    - theme: brand
-      text: 快速开始
-      link: ./introduction
-
 
 features:
   - icon:
-      src: https://zh.minecraft.wiki/images/Java_Edition_icon_2.png?84f96&format=original
-    title: 旧版本 Minecraft 模组开发文档
-    details: 基于 Minecraft 1.12.2 的系统性模组开发文档
-
+      src: /img/forge.png
+      width: 91
+    title: Forge模组开发文档
+    details: 
   - icon:
-      src: https://zh.minecraft.wiki/images/Crafting_Table_JE4_BE3.png?738c8&format=original
-    title: 新版本 Minecraft 模组开发文档
-    details: 基于 Minecraft 1.20.1 的系统性模组开发文档
-
+      src: /img/neoforge.png
+    title: NeoForge模组开发文档
+    details: 
   - icon:
-      src: https://media.forgecdn.net/avatars/thumbnails/850/975/256/256/638252863907612360.png
-    title: GTCEu 附属模组开发文档
-    details: 基于 GTCEu 的附属模组教程与相关 API 开发文档
+      src: /img/mixin.png
+      width: 123
+    title: Mixin说明文档
+    details: 
+    link: ./mixin/intro
+  - icon:
+      src: /img/gtceu.png
+    title: GTCEu附属开发文档
+    details: 
     link: ./gtceu/intro
-    
-  - icon:
-      src: https://raw.githubusercontent.com/GregTechCEu/Branding/refs/heads/master/gregtech_ceu_modern_logo_large_modern.png
-    title: GTM 附属模组开发文档
-    details: 基于 GTM 的附属模组教程与相关 API 开发文档
+
 ---
