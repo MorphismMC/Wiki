@@ -16,7 +16,7 @@ hero:
 
 features:
   - icon:
-      src: https://zh.minecraft.wiki/w/File:Java_Edition_icon_2.png
+      src: https://zh.minecraft.wiki/images/Java_Edition_icon_2.png?84f96&format=original
     title: Legacy Minecraft Mod Development Docs
     details: 基于 Minecraft 1.12.2 的系统性教程
     link: ./legacymc/intro
