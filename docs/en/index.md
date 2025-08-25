@@ -21,7 +21,7 @@ features:
     details: 基于 Minecraft 1.12.2 的系统性模组开发文档
 
   - icon:
-      src: https://zh.minecraft.wiki/w/Minecraft#/media/File:Crafting_Table_JE4_BE3.png
+      src: https://zh.minecraft.wiki/images/Crafting_Table_JE4_BE3.png?738c8&format=original
     title: Modern Minecraft Mod Develop Documents
     details: 基于 Minecraft 1.20.1 的系统性模组开发文档
 
@@ -32,7 +32,7 @@ features:
     link: ./gtceu/intro
     
   - icon:
-      src: https://media.forgecdn.net/avatars/thumbnails/850/975/64/64/638252863907612360.png
+      src: https://raw.githubusercontent.com/GregTechCEu/Branding/refs/heads/master/gregtech_ceu_modern_logo_large_modern.png
     title: GTM Addon Mod Develop Documents
     details: 基于 GTM 的附属模组教程与相关 API 开发文档
 ---
