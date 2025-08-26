@@ -3,6 +3,7 @@ import { groupIconMdPlugin } from "vitepress-plugin-group-icons"
 import { MermaidMarkdown, MermaidPlugin } from "vitepress-plugin-mermaid"
 import { en } from "./config/en"
 import { zh } from "./config/zh"
+import { style } from "./config/style"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -24,34 +25,7 @@ export default defineConfig({
     },
   },
 
-  markdown: {
-    lineNumbers: true,
-
-    container: {
-      tipLabel: "提示",
-      warningLabel: "警告",
-      dangerLabel: "危险",
-      infoLabel: "信息",
-      detailsLabel: "详细信息"
-    },
-
-    config: (md) => {
-      md.use(() => { groupIconMdPlugin })
-      md.use(() => { MermaidMarkdown })
-    }
-  },
-
-  vite: {
-    plugins: [
-      [MermaidPlugin()]
-    ],
-    optimizeDeps: {
-      include: ["mermaid"],
-    },
-    ssr: {
-      noExternal: ["mermaid"],
-    }
-  },
+  ...style,
 
   locales: {
     en: { label: "English", ...en },
