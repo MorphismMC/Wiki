@@ -2,6 +2,8 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from "vitepress-plugin-mermaid"
 
+import 'virtual:group-icons.css'
+
 export const style = defineConfig({
 
   markdown: {
