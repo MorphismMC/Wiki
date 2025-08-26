@@ -1,26 +1,26 @@
-import { defineConfig } from 'vitepress'
-import { groupIconMdPlugin } from 'vitepress-plugin-group-icons'
-import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid'
-import { en } from './config/en'
-import { zh } from './config/zh'
+import { defineConfig } from "vitepress"
+import { groupIconMdPlugin } from "vitepress-plugin-group-icons"
+import { MermaidMarkdown, MermaidPlugin } from "vitepress-plugin-mermaid"
+import { en } from "./config/en"
+import { zh } from "./config/zh"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   head: [
-    ['link', { rel: 'icon', type: 'image/x-icon', href: 'icon.ico' }]
+    ["link", { rel: "icon", type: "image/x-icon", href: "icon.ico" }]
   ],
   ignoreDeadLinks: true,
   lastUpdated: true,
-  title: 'MorphismMC Wiki',
+  title: "MorphismMC Wiki",
 
   themeConfig: {
-    logo: '/icon/icon.ico',
+    logo: "/img/icon.ico",
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/MorphismMC/Wiki' }
+      { icon: "github", link: "https://github.com/MorphismMC/Wiki" }
     ],
     footer: {
-      message: 'Released under the Creative Commons Zero v1.0 Universal License.',
-      copyright: 'Copyright © 2024-2025 MorphismMC'
+      message: "Released under the Creative Commons Zero v1.0 Universal License.",
+      copyright: "Copyright © 2024-2025 MorphismMC"
     },
   },
 
@@ -28,11 +28,11 @@ export default defineConfig({
     lineNumbers: true,
 
     container: {
-      tipLabel: '提示',
-      warningLabel: '警告',
-      dangerLabel: '危险',
-      infoLabel: '信息',
-      detailsLabel: '详细信息'
+      tipLabel: "提示",
+      warningLabel: "警告",
+      dangerLabel: "危险",
+      infoLabel: "信息",
+      detailsLabel: "详细信息"
     },
 
     config: (md) => {
@@ -46,15 +46,15 @@ export default defineConfig({
       [MermaidPlugin()]
     ],
     optimizeDeps: {
-      include: ['mermaid'],
+      include: ["mermaid"],
     },
     ssr: {
-      noExternal: ['mermaid'],
+      noExternal: ["mermaid"],
     }
   },
 
   locales: {
-    en: { label: 'English', ...en },
-    zh: { label: '简体中文', ...zh },
+    en: { label: "English", ...en },
+    zh: { label: "简体中文", ...zh },
   }
 });

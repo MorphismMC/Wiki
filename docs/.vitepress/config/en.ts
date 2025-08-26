@@ -1,12 +1,10 @@
-import { type DefaultTheme, defineConfig } from 'vitepress'
+import { type DefaultTheme, defineConfig } from "vitepress"
 
 export const en = defineConfig({
   lang: "en-US",
   themeConfig: {
     nav: [
-      { text: 'Home', link: './' },
-      { text: 'Introduction', link: './introduce' },
-      { text: 'Quick Start', link: './quick_start' }
+      { text: "Home", link: "./" },
     ],
     sidebar: sidebar(),
     returnToTopLabel: "Back to Top",
@@ -55,11 +53,11 @@ export const en = defineConfig({
 function sidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'GTCEu附属开发文档',
+      text: "GTCEu附属开发文档",
       collapsed: false,
       items: [
-        { text: '引言', link: './intro' },
-        { text: '元物品', link: './chap1-metaitem' }
+        { text: "引言", link: "./intro" },
+        { text: "元物品", link: "./chap1-metaitem" }
       ]
     }
   ]

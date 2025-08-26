@@ -3,25 +3,33 @@
 layout: home
 
 hero:
-  name: "MorphismMC Wiki"
-  tagline: 非官方
+  name: "MorphismMC"
+  text: "Wiki"
+  tagline: ""
   image:
     src: https://gitlab.com/uploads/-/system/group/avatar/76070831/cngtommunity_icon.png
     alt: MorphismMC
-  actions:
-    - theme: brand
-      text: 快速开始
-      link: ./introduction
-
 
 features:
   - icon:
-      src: https://media.forgecdn.net/avatars/thumbnails/850/975/256/256/638252863907612360.png
-    title: GTCEu附属模组开发文档
-    details: 快速入门编写 GTCEu 1.12.2 附属模组
-    link: ./gtceu/intro
+      src: /img/forge.png
+      width: 91
+    title: Forge模组开发文档
+    details: 
   - icon:
-      src: https://cdn.modrinth.com/data/7tG215v7/images/dab88763809c6273b2947356c91ac82883d9392f.png
-    title: 1.20.x GTM
-    details: 施工中
+      src: /img/neoforge.png
+    title: NeoForge模组开发文档
+    details: 
+  - icon:
+      src: /img/mixin.png
+      width: 123
+    title: Mixin说明文档
+    details: 
+    link: ./mixin/intro
+  - icon:
+      src: /img/gtceu.png
+    title: GTCEu附属开发文档
+    details: 
+    link: ./gtceu/intro
+
 ---

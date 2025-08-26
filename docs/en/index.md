@@ -16,12 +16,23 @@ hero:
 
 features:
   - icon:
-      src: https://media.forgecdn.net/avatars/thumbnails/850/975/256/256/638252863907612360.png
-    title: GTCEu附属模组开发文档
-    details: 快速入门编写 GTCEu 1.12.2 附属模组
-    link: ./gtceu/intro
+      src: https://zh.minecraft.wiki/images/Java_Edition_icon_2.png?84f96&format=original
+    title: Legacy Minecraft Mod Develop Documents
+    details: 基于 Minecraft 1.12.2 的系统性模组开发文档
+
   - icon:
-      src: https://cdn.modrinth.com/data/7tG215v7/images/dab88763809c6273b2947356c91ac82883d9392f.png
-    title: 1.20.x GTM
-    details: 施工中
+      src: https://zh.minecraft.wiki/images/Crafting_Table_JE4_BE3.png?738c8&format=original
+    title: Modern Minecraft Mod Develop Documents
+    details: 基于 Minecraft 1.20.1 的系统性模组开发文档
+
+  - icon:
+      src: https://media.forgecdn.net/avatars/thumbnails/850/975/256/256/638252863907612360.png
+    title: GTCEu Addon Mod Develop Documents
+    details: 基于 GTCEu 的附属模组教程与相关 API 开发文档
+    link: ./gtceu/intro
+    
+  - icon:
+      src: https://raw.githubusercontent.com/GregTechCEu/Branding/refs/heads/master/gregtech_ceu_modern_logo_large_modern.png
+    title: GTM Addon Mod Develop Documents
+    details: 基于 GTM 的附属模组教程与相关 API 开发文档
 ---

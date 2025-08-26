@@ -1,14 +1,15 @@
-import { type DefaultTheme, defineConfig } from 'vitepress'
+import { type DefaultTheme, defineConfig } from "vitepress"
 
 export const zh = defineConfig({
     lang: "zh-CN",
     themeConfig: {
         nav: [
-            { text: '主页', link: './' },
-            { text: '介绍', link: './introduce' },
-            { text: '快速开始', link: './quick_start' }
+            { text: "主页", link: "./" },
         ],
-        sidebar: sidebar(),
+        sidebar: {
+            "/zh/gtceu/": gtceuSidebar(),
+            "/zh/mixin/": mixinSidebar(),
+        },
 
         returnToTopLabel: "返回顶部",
         sidebarMenuLabel: "目录",
@@ -53,14 +54,23 @@ export const zh = defineConfig({
     }
 });
 
-function sidebar(): DefaultTheme.SidebarItem[] {
+function mixinSidebar(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'GTCEu附属开发文档',
-            collapsed: false,
             items: [
-                { text: '引言', link: './intro' },
-                { text: '元物品', link: './chap1-metaitem' }
+                { text: "引言", link: "./intro" },
+                { text: "元物品", link: "./chap1-metaitem" }
+            ]
+        }
+    ]
+};
+
+function gtceuSidebar(): DefaultTheme.SidebarItem[] {
+    return [
+        {
+            items: [
+                { text: "引言", link: "./intro" },
+                { text: "元物品", link: "./chap1-metaitem" }
             ]
         }
     ]
