@@ -59,7 +59,7 @@ export const zh = defineConfig({
         dangerLabel: "危险",
         infoLabel: "信息",
         detailsLabel: "详细信息"
-      }
+      },
 
       codeCopyButtonTitle: "复制代码"
     }
