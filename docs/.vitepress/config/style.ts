@@ -10,7 +10,7 @@ export const style = defineConfig({
     config(md) {
       md.use(groupIconMdPlugin)
       md.use(MermaidMarkdown)
-    },
+    }
 
   },
 
