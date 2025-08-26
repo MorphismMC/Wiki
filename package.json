@@ -5,7 +5,8 @@
     "vitepress-plugin-mermaid": "^2.0.17"
   },
   "dependencies": {
-    "vue": "^3.5.17"
+    "vue": "^3.5.17",
+    "@vueuse/core": "^13.5.0"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
