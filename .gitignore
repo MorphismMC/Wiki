@@ -5,3 +5,4 @@
 /.obsidian/
 test*.*
 yarn.lock
+.idea
