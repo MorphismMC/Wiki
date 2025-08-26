@@ -7,6 +7,7 @@ export const zh = defineConfig({
             { text: "主页", link: "./" },
         ],
         sidebar: {
+            "/zh/forge/": forgeSidebar(),
             "/zh/gtceu/": gtceuSidebar(),
             "/zh/mixin/": mixinSidebar(),
         },
@@ -53,6 +54,19 @@ export const zh = defineConfig({
         }
     }
 });
+
+function forgeSidebar(): DefaultTheme.SidebarItem[] {
+    return [
+        {
+            text: "1.12.2",
+            collapsed: false,
+            items: [
+                { text: "引言", link: "./intro" },
+                { text: "CoreMod", link: "./core-mod" }
+            ]
+        }
+    ]
+};
 
 function mixinSidebar(): DefaultTheme.SidebarItem[] {
     return [

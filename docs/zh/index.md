@@ -16,6 +16,7 @@ features:
       width: 91
     title: Forge模组开发文档
     details: 
+    link: ./forge/1.12.2/intro
   - icon:
       src: /img/neoforge.png
     title: NeoForge模组开发文档
