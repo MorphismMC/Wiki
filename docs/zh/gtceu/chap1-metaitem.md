@@ -145,4 +145,4 @@ object GAMetaItem {
 注意，当你使用 Kotlin 或 Scala 时，需要在适当阶段调用 `init` 与 `register` 方法完成初始化，否则会注册失败。
 
 一个元物品的默认模型路径是 `assets/gregtech/models/item/metaitems/example_item.json`，你可以通过在 `StandardMetaItem` 类中覆写对应方法来改变它，
-详见 `MetaItem` 类中的方法 `formatModelPath` 与 `createItemModelPath`。
+详见 `MetaItem` 类中的相关方法 `formatModelPath` 与 `createItemModelPath`。

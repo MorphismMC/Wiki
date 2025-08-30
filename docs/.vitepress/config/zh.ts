@@ -82,7 +82,8 @@ function gtceuSidebar(): DefaultTheme.SidebarItem[] {
             items: [
                 { text: "引言", link: "./intro" },
                 { text: "元物品", link: "./chap1-metaitem" },
-                { text: "材料", link: "./chap2-material" }
+                { text: "材料：内篇", link: "./chap2-material" },
+                { text: "材料：外篇", link: "./chap3-material-2.md" }
             ]
         }
     ]
