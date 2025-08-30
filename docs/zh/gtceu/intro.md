@@ -8,78 +8,47 @@
 
 ## 简介
 
-**格雷科技社区版：非官方版**（GregTech CE Unofficial，简称**GTCEu**）是一个支持 Minecraft 1.12.2 版本的格雷科技模组，是原有的旧模组**格雷科技社区版**的分支，在本文档中的相关叙述中，我们均以其简称来代指本模组。本模组提供了相当多的面向附属模组的通用API，使得开发者基于此模组开发成为了可能。
+**格雷科技**是 Minecraft 中著名的科技模组，因其的复杂机制，工厂化生产与丰富的内容而闻名。这个模组最初由 GregoriusT 个人开发，
+而后在 1.12.2 版本中由 GTCEu 团队进行维护。 从最早的格雷科技社区版（GTCE）到如今的**格雷科技社区版非官方版**（GTCEu），
+模组的内部API已经经过了长足的迭代与优化，使得开发其的附属模组变得不再是一件困难的事。
 
-在本文档中，我们将会提供 Java 与 Kotlin 两种语言的代码示例，你可以通过在代码块中的图标与标题进行切换。需要注意的是，如果您期望在生产环境中使用 Kotlin 语言，则需要 [**Forgelin Continuous**](https://github.com/ChAoSUnItY/Forgelin-Continuous) 模组的支持。
+这个文档旨在向开发者介绍 GTCEu 中的诸多 API 设计与使用方式，来使开发者可以快速上手基于 GTCEu 的附属模组开发工作，
+同时也会介绍其背后的底层工作原理与一部分 GTCEu 所依赖模组的运作模式，例如 ModularUI2 与 CodeChickenLib（CCL）。
 
-在介绍具体内容的文档中，我们以一个名为 `Gregica` 的模组作为示例（需要注意的是，这个模组仅作为演示时使用，并不是真实存在的已发布模组，如存在同名模组则无相应关系），这个模组的类通常以 `GA` 作为名称的前缀。
+## 凡例
 
-## 本文档的主旨
+在此对本系列文档做系统性的符号与叙述方式约定，本文档以一个名为 `Gregica` 的虚构模组作为主体来进行开发与介绍，
+开发者可以试着跟随本文档的内容来真正创建一个名为 `Gregica` 的 GTCEu附属模组。需要注意的是，这个模组是作为一个介绍范例存在的，
+而非已发布 / 未发布的真实模组。
 
-如你所见，格雷科技这一模组的特色就是大量的材料，方块与机器，这不可避免的需要足够良好的API。恰巧，GTCEu为这些功能各自设计了API，使得附属模组可以更好的进行开发。
+这个模组的类的通用前缀名为 `GA`，这意味着如果存在外部包同名类，例如 `Material`，
+则处于模组内的对应功能类会被命名为 `GAMaterial`，另一个可用前缀名为 `Gregica`，一般用于一些使用通用前缀名容易引起混淆的情况，
+例如 `GregicaAPI` 与 `GAAPI`这样的区别。
 
-一个典型的例子是注册金属材料的构建器：
+对于作为示例的语言，我们并不做特定的限制，一般来说会提供 Java 与 Kotlin 两种语言的代码示例，可以通过点击代码块顶部的方框进行切换。
+需要注意的是，若开发者期望在生产环境中获得 Kotlin 语言支持，则需要 [**Forgelin Continuous**](https://github.com/ChAoSUnItY/Forgelin-Continuous) 模组的支持。
 
-::: code-group
+## 大致内容
 
-```java [MaterialBuilderExample.java]
-import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.properties.BlastProperty.GasTier;
-import gregtech.api.unification.material.properties.MaterialToolProperty;
+本文档以目前最新的 GTCEu 版本的 API 作为演示，这意味着非 Release 版本的变动也会被纳入考虑范围内。具体内容可见于侧边栏的分类中，
+我们以章作为组成文档的基本单位，每章中设有1-4个小节用以囊括具体的内容，基于这些考量，本文档的内容的写作上有以下几个特点：
 
-import static gregtech.api.GTValues.*;
-import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static gregtech.api.unification.material.info.MaterialIconSet.*;
-import static gregtech.api.util.GTUtility.gregtechId;
+- 对于初学者的介绍与使用指南，兼具面向已对相关 API 熟稔的开发者作为参考的功能；
+- 强调原理与底层实现，但不强制开发者阅读相关内容，一般来说，这部分内容会在正文中被折叠或援引；
 
-public static Material Aluminium = new Material.Builder(2, gregtechId("aluminium"))
-    .ingot()
-    .liquid(new FluidBuilder().temperature(933))
-    .ore()
-    .color(0x80C8F0)
-    .flags(EXT2_METAL, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_RING, GENERATE_FRAME, GENERATE_SPRING,
-        GENERATE_SPRING_SMALL, GENERATE_FINE_WIRE, GENERATE_DOUBLE_PLATE)
-    .element(Elements.Al)
-    .toolStats(MaterialToolProperty.Builder.of(6.0F, 7.5F, 768, 2)
-        .enchantability(14)
-        .build())
-    .rotorStats(10.0f, 2.0f, 128)
-    .cableProperties(V[EV], 1, 1)
-    .fluidPipeProperties(1166, 100, true)
-    .blast(1700, GasTier.LOW)
-    .build();
-```
+作为引言，有必要在此申明阅读本文档所需的前置知识：
 
-```kotlin [MaterialBuilderExample.kt]
-import gregtech.api.unification.material.Material
-import gregtech.api.unification.material.properties.BlastProperty.GasTier
-import gregtech.api.unification.material.properties.MaterialToolProperty
+- 掌握 Java 或 Kotlin 语言的基本语法，至少了解其面向对象特性，if-else结构等基本操作；
+- 对 Minecraft 1.12.2 及 Forge 的开发知识的基本认识，至少了解事件注册等内容；
 
-import static gregtech.api.GTValues.*
-import static gregtech.api.unification.material.info.MaterialFlags.*
-import static gregtech.api.unification.material.info.MaterialIconSet.*
-import static gregtech.api.util.GTUtility.gregtechId
+针对超过这部分限度的内容，我们将在文档中援引相关外部资料或进行回顾性介绍。
 
-var Aluminium: Material = Material.Builder(2, gregtechId("aluminium"))
-    .ingot()
-    .liquid(FluidBuilder().temperature(933))
-    .ore()
-    .color(0x80C8F0)
-    .flags(EXT2_METAL, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_RING, GENERATE_FRAME, GENERATE_SPRING,
-        GENERATE_SPRING_SMALL, GENERATE_FINE_WIRE, GENERATE_DOUBLE_PLATE)
-    .element(Elements.Al)
-    .toolStats(MaterialToolProperty.Builder.of(6.0F, 7.5F, 768, 2)
-        .enchantability(14)
-        .build())
-    .rotorStats(10.0f, 2.0f, 128)
-    .cableProperties(V[EV], 1, 1)
-    .fluidPipeProperties(1166, 100, true)
-    .blast(1700, GasTier.LOW)
-    .build()
+## 阅读提示
 
-```
+本文档的总体写作结构从较为简单的部分深入，由对元物品和与之相关的 API 的介绍作为起始，旨在使开发者通过从了解一部分整体性的 API 后对其他 API 产生兴趣。
 
-:::
-GTCEu提供了关于材料的各项数值与生成设置，只需要通过一系列配置就可以控制材料是否生成对应物品与方块，甚至还在配方阶段有对应的处理来生成配方！
+我们采取**内篇**与**外篇**的区分方式来向开发者展示，内篇为共通的基础框架，外篇则为对内篇的增补与补充，将会涉及更多的扩展性内容。
+例如对于材料部分，内篇部分包括了对材料注册，矿物前缀，词条与图案集的介绍，外篇部分则包括对 `CraftingComponent` API 与 `MarkerMaterial` API 的介绍，
+这两个小型 API 隶属于材料相关的 API 的一部分，但多用于矿物辞典与配方注册，因此被置入外篇的讨论范围内。
 
-本文档的主要内容就是介绍这些或复杂或简单的API，以便你更好的阅读与理解GTCEu的代码，相信这些文档对你的GTCEu附属开发工作有所帮助！
+在阅读时，外篇内容属于可以在阅读时暂且跳过的内容，你可以在适当情况下跳过它们并在之后需要了解时回顾。
