@@ -83,7 +83,10 @@ function gtceuSidebar(): DefaultTheme.SidebarItem[] {
                 { text: "引言", link: "./intro" },
                 { text: "元物品", link: "./chap1-metaitem" },
                 { text: "材料：内篇", link: "./chap2-material" },
-                { text: "材料：外篇", link: "./chap3-material-2.md" }
+                { text: "材料：外篇", link: "./chap3-material-2" },
+                { text: "变种方块", link: "./chap4-variant-block" },
+                { text: "配方：内篇", link: "./chap5-recipemap" },
+                { text: "配方：外篇", link: "./chap6-recipemap-2" }
             ]
         }
     ]
